@@ -1,0 +1,2 @@
+# mastermind-python
+Mastermind game
