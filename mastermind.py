@@ -26,22 +26,24 @@ def new_game(use_letters=False, allow_duplicates=False):
     code = generate_code(use_letters, allow_duplicates)
     
     guess = []
+    print(code)
 
     while guess != code:
         tries += 1
         print(f"Guess the hidden code using: {LETTERS if use_letters else NUMBERS}")
         guess = get_guess(use_letters)
         correctness = get_correctness(code, guess)
-        print_correctness(correctness)
+        print_correctness(correctness, use_letters)
         if correctness[0] == 4:
             break
 
     print(f"Congratulations, you found the hidden code in {tries} tries")
 
 
-def print_correctness(correctness):
-    print(f"Correct color and correct position -> {correctness[0]}")
-    print(f"Correct color incorrect position -> {correctness[1]}")
+def print_correctness(correctness, use_letters):
+    what = "letters" if use_letters else "numbers"
+    print(f"Correct {what} in correct position -> {correctness[0]}")
+    print(f"Correct {what} in incorrect position -> {correctness[1]}")
 
 
 def get_correctness(code, guess):
