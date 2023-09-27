@@ -26,7 +26,6 @@ def new_game(use_letters=False, allow_duplicates=False):
     code = generate_code(use_letters, allow_duplicates)
     
     guess = []
-    print(code)
 
     while guess != code:
         tries += 1
